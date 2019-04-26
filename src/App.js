@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-
+import Header from './Components/Header';
 
 class App extends Component {
   componentWillMount() {
@@ -12,7 +12,7 @@ class App extends Component {
   render(){
     return (
         <div>
-
+          <Header />
         </div>
     );
   }
