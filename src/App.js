@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from './components/Header';
 import Timeline from './components/Timeline';
 
+
 class App extends Component {
   state = {
     purchase: null,
@@ -11,8 +12,8 @@ class App extends Component {
   compare = (first, second) => {
     const firstTimestamp = first.compra.timestamp;
     const secondTimestamp = second.compra.timestamp;
-    if (firstTimestamp > secondTimestamp)  return 1;
-    else if (firstTimestamp < secondTimestamp)  return -1;
+    if (firstTimestamp > secondTimestamp) return 1;
+    else if (firstTimestamp < secondTimestamp) return -1;
     else return 0;
   };
 
@@ -21,15 +22,14 @@ class App extends Component {
     let ProductPurchase = [];
     data.forEach(event => {
       if (event.event === 'comprou-produto') ProductPurchase.push(event);
-      else if (event.event === 'comprou') ShoppingPurchase.push({compra:event, produtos:[]});
+      else if (event.event === 'comprou') ShoppingPurchase.push({compra: event, produtos: []});
     });
     ShoppingPurchase.forEach(shopping => {
       ProductPurchase.forEach(product => {
-        if (product.timestamp.slice(0,10) === shopping.compra.timestamp.slice(0,10)) shopping.produtos.push(product)
+        if (product.timestamp.slice(0, 10) === shopping.compra.timestamp.slice(0, 10)) shopping.produtos.push(product)
       })
     });
     ShoppingPurchase.sort(this.compare);
-    console.log(ShoppingPurchase)
     this.setState({purchase: ShoppingPurchase})
   };
 
@@ -39,10 +39,10 @@ class App extends Component {
         .catch(error => console.log(error))
   }
 
-  render(){
+  render() {
     return (
         <div>
-          <Header />
+          <Header/>
           <Timeline purchase={this.state.purchase}/>
         </div>
     );
