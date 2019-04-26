@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Header from './Components/Header';
+import Header from './components/Header';
+import Timeline from './components/Timeline';
 
 class App extends Component {
   state = {
@@ -42,6 +43,7 @@ class App extends Component {
     return (
         <div>
           <Header />
+          <Timeline purchase={this.state.purchase}/>
         </div>
     );
   }
