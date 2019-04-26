@@ -34,7 +34,7 @@ class App extends Component {
   };
 
   componentWillMount() {
-    axios.get('https://storage.googleapis.com/dito-questions/events.json')
+    axios.get('https://cors-anywhere.herokuapp.com/https://storage.googleapis.com/dito-questions/events.json')
         .then(res => this.RefactorData(res.data.events))
         .catch(error => console.log(error))
   }
