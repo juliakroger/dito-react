@@ -2,6 +2,7 @@
 
 ### Demo
 Live version
+https://naughty-leakey-155df7.netlify.com/
 
 ### Setup
 ```shell
